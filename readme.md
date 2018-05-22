@@ -43,14 +43,14 @@ __Declaration:__
 ```javascript
 // BAD:
 someobj.somefn = function() {
-	const age = 30;
+    const age = 30;
 };
 
 // GOOD:
 someobj.somefn = function() {
-	var age = 30;
-	// or
-	// let age = 30;
+    var age = 30;
+    // or
+    // let age = 30;
 };
 ````
 
