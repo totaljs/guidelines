@@ -7,6 +7,8 @@
 - always use `;` semicolon on end of the command
 - don't use `const` constant in the method scopes
 - short strings must be always wrapped in `'` apostrophes
+- avoid adding any dependencies as much as possible
+- learn from our existing code
 
 ## Examples
 
