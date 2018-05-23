@@ -9,6 +9,7 @@
 - short strings must be always wrapped in `'` apostrophes
 - avoid adding any dependencies as much as possible
 - learn from our existing code
+- we prefer classic `loops` than `forEach()`
 
 ## Examples
 
@@ -35,9 +36,19 @@ __Semicolons:__
 someobj.somefn = function() {
 }
 
+// or
+
+var a
+var b
+var c
+
 // GOOD:
 someobj.somefn = function() {
 };
+
+var a;
+var b;
+var c;
 ```
 
 __Declaration:__
@@ -54,6 +65,28 @@ someobj.somefn = function() {
     // or
     // let age = 30;
 };
+````
+
+__Conditions:__
+
+```javascript
+// BAD:
+if(true) {doSomething();}
+
+// or
+if(true) doSomething();
+
+// or
+if (true) {
+    doSomething();
+}
+
+// GOOD:
+if (true)
+	doSomething();
+
+// or for simple conditions you can use one-line expression:
+true && doSomething();
 ````
 
 ## Contact
