@@ -1,5 +1,10 @@
 # Total.js JavaScript Style Guide
 
+## Files
+
+- __always use lowercase filenames__
+- instead of `_` underscores use `-` dashes
+
 ## Common
 
 - `tabs` (tab width `4`) instead of `spaces`
