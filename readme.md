@@ -1,20 +1,20 @@
 # Total.js JavaScript Style Guide
 
-## Files
+## Filenames
 
-- __always use lowercase filenames__
-- instead of `_` underscores use `-` dashes
+- __filenames should be all lowercase__
+- use `-` dashes instead of `_` underscores
 
 ## Common
 
-- `tabs` (tab width `4`) instead of `spaces`
-- all scripts must be cleaned from useless white-spaces
-- always use `;` semicolon on end of the command
+- use `tabs` (tab width `4`) instead of `spaces`
+- remove all unnecessary white-spaces
+- always use `;` semicolon at the end of a command
 - don't use `const` constant in the method scopes
-- short strings must be always wrapped in `'` apostrophes
+- short strings should be always wrapped in `'` apostrophes
 - avoid adding any dependencies as much as possible
 - learn from our existing code
-- we prefer classic `loops` than `forEach()`
+- use classic `loops` over `forEach()` where possible
 
 ## Examples
 
@@ -90,7 +90,7 @@ if (true) {
 if (true)
 	doSomething();
 
-// or for simple conditions you can use one-line expression:
+// or for a simple conditions you can use inline expression:
 true && doSomething();
 ````
 
