@@ -1,11 +1,13 @@
-# Total.js JavaScript Style Guide
+# Total.js Guide
 
-## Filenames
+## JavaScript Style
+
+### Filenames
 
 - __filenames should be all lowercase__
-- use `-` dashes instead of `_` underscores
+- use `-` dashes instead of `_` underscores for filenames 
 
-## Common
+### Common
 
 - use `tabs` (tab width `4`) instead of `spaces`
 - remove all unnecessary white-spaces
@@ -16,7 +18,7 @@
 - learn from our existing code
 - use classic `loops` over `forEach()` where possible
 
-## Examples
+### Examples
 
 __Basics__:
 
@@ -93,6 +95,23 @@ if (true)
 // or for a simple conditions you can use inline expression:
 true && doSomething();
 ````
+
+## CSS / Styles
+
+- __filenames should be all lowercase__
+- for filenames use `-` dashes instead of `_` underscores for filenames
+- __keep styles__ in the same line
+- don't use vendor prefixes, but use `/*auto*/` comment for Total.js auto-prefixing
+- instead of quotes use `'` apostrophes
+- don't use LESS or SASS because Total.js supports variables and nested selector too
+
+```css
+/*auto*/
+
+.class { key1: value; key2: value; key3: value; }
+.class > div { key1: value; key2: value; }
+```
+
 
 ## Contact
 
