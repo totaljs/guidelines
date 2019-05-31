@@ -226,7 +226,7 @@ CREATE TABLE "public"."tbl_channel_message" (
 -- GOOD:
 CREATE TABLE "public"."tbl_channel_message" (
 
-	-- IDENTIFICATOR FIRST
+	-- IDENTIFICATORS FIRST
 	"id" varchar(25) NOT NULL,
 	"userid" varchar(25),
 	"channelid" varchar(25),
