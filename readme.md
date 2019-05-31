@@ -5,7 +5,7 @@
 ### Filenames
 
 - __filenames should be all lowercase__
-- use `-` dashes instead of `_` underscores for filenames 
+- use `-` dashes instead of `_` underscores for filenames
 
 ### Common
 
@@ -112,6 +112,141 @@ true && doSomething();
 .class > div { key1: value; key2: value; }
 ```
 
+## Total.js Schemas
+
+- schema names must be in plural
+- first char in uppercase
+
+```
+// BAD:
+NEWSCHEMA('user', function(schema) {
+
+	schema.define('name', 'Capitalize2(40)', true);
+
+});
+
+// GOOD:
+NEWSCHEMA('Users', function(schema) {
+
+	schema.define('name', 'Capitalize2(40)', true);
+
+});
+```
+
+## UI components / jComponent
+
+- keep all names in Plugins/Components/FUNC./MAIN./REPO. in __lowercase__
+- keep all variables in __lowercase__
+- do not create complicated objects with a lot of objects in depth (keep max. 2-3 of keys in depth)
+- __think reusable__
+
+```javascript
+// =======================================
+// PLUGINS
+// =======================================
+
+// BAD:
+PLUGIN('Name', function(plugin) {
+	plugin.doSomething = function() {
+	};
+});
+
+// GOOD:
+PLUGIN('name', function(exports) {
+	// keep "exports." name and keep all names in lowercase
+	exports.dosomething = function() {
+	};
+});
+
+// =======================================
+// COMPONENTS
+// =======================================
+
+// BAD:
+COMPONENT('Name', function(com, settings) {
+
+});
+
+// GOOD:
+COMPONENT('name', function(self, config) {
+	// keep "self." and "config" name
+});
+````
+
+## SQL scripts in Total.js
+
+- __table names / field names should be all lowercase__
+- use `tabs` (tab width `4`) instead of `spaces`
+- remove all unnecessary white-spaces
+- always use `;` semicolon at the end of a SQL command
+- remove all unnecessary type-casting `name<>'something'::text` to `name<>'something'`
+- format SQL scripts
+- divided scripts TABLES, VIEWS, STORED PROCEDURES/FUNCTIONS, INDEXES
+- table names starts with `tbl_` in singular --> `tbl_user`, `tbl_product`
+- view names starts with `view_` in singular --> `view_user`
+- stored procedures starts with `sp_` in sinuglar --> `sp_user`, etc..
+- functions starts with `fn_` in sinuglar --> `fn_user`, etc..
+
+__Fields creating__:
+
+- dates starts with `dt` --> `dtcreated`, `dtupdated`, `dtpaid`, etc..
+- booleans must starts with `is` --> `ispaid`, `isremoved`, `ispublished`, etc.. with few exceptions
+- identificators `id` (primary key), `userid` (foreign key), `productid` (foreign key), etc..
+- Total.js identificators: Total.js UID = `VARCHAR(25)`, OpenPlatformID = `VARCHAR(30)`
+- keep same names in different tables for example: `name`, `body`, etc..
+- keep short names
+- keep the sort of fields below:
+
+```sql
+-- BAD:
+CREATE TABLE "public"."tbl_channel_message" (
+	"channelid" varchar(25),
+	"body" text,
+	"id" varchar(25) NOT NULL,
+	"ispinned" bool DEFAULT FALSE,
+	"isrobot" bool DEFAULT FALSE,
+	"userid" varchar(25),
+	"countupdate" INT2 DEFAULT 0,
+	"dtupdated" timestamp,
+	"openplatformid" varchar(30),
+	"dtcreated" timestamp DEFAULT now(),
+	"ismobile" bool DEFAULT FALSE,
+	"isremoved" bool DEFAULT FALSE,
+	PRIMARY KEY ("id")
+);
+
+-- GOOD:
+CREATE TABLE "public"."tbl_channel_message" (
+
+	-- IDENTIFICATOR FIRST
+	"id" varchar(25) NOT NULL,
+	"userid" varchar(25),
+	"channelid" varchar(25),
+	"openplatformid" varchar(30),
+
+	-- MAIN FIELDS
+	"body" text,
+
+	-- NUMBERS
+	"countupdate" INT2 DEFAULT 0,
+
+	-- BOOLEANS
+	"ismobile" bool DEFAULT FALSE,
+	"ispinned" bool DEFAULT FALSE,
+	"isremoved" bool DEFAULT FALSE,
+	"isrobot" bool DEFAULT FALSE,
+
+	-- AND LAST DATES
+	"dtupdated" timestamp,
+	"dtcreated" timestamp DEFAULT NOW(),
+
+	-- DO NOT FORGET FOR FOREIGN KEYS
+	CONSTRAINT ...
+	CONSTRAINT ...
+
+	PRIMARY KEY ("id")
+);
+```
 
 ## Contact
 
