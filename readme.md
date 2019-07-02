@@ -191,9 +191,10 @@ COMPONENT('name', function(self, config) {
 - format SQL scripts
 - divided scripts TABLES, VIEWS, STORED PROCEDURES/FUNCTIONS, INDEXES
 - table names starts with `tbl_` in singular --> `tbl_user`, `tbl_product`
+- tables with codelists must start with `cl_` in singular --> `cl_type`, `cl_product`
 - view names starts with `view_` in singular --> `view_user`
-- stored procedures starts with `sp_` in sinuglar --> `sp_user`, etc..
-- functions starts with `fn_` in sinuglar --> `fn_user`, etc..
+- stored procedures starts with `sp_` in singular --> `sp_user`, etc..
+- functions starts with `fn_` in singular --> `fn_user`, etc..
 
 __Fields creating__:
 
