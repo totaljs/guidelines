@@ -125,7 +125,7 @@ true && doSomething();
 - schema names must be in plural
 - first char in uppercase
 
-```
+```js
 // BAD:
 NEWSCHEMA('user', function(schema) {
 
@@ -259,6 +259,7 @@ CREATE TABLE "public"."tbl_channel_message" (
 
 ## Contact
 
+- Use [Total.js Code Editor](https://www.totaljs.com/code/) for development
 - (c) 2012-2020 by Peter Širka - <petersirka@gmail.com>
 - Contact us via <https://www.totaljs.com/contact/>
 - <info@totaljs.com>
