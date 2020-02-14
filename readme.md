@@ -1,4 +1,4 @@
-# Total.js Guide
+# Total.js Guidelines
 
 __Topics__:
 
@@ -98,7 +98,7 @@ if (true) {
 
 // GOOD:
 if (true)
-	doSomething();
+    doSomething();
 
 // or for a simple conditions you can use inline expression:
 true && doSomething();
@@ -129,14 +129,14 @@ true && doSomething();
 // BAD:
 NEWSCHEMA('user', function(schema) {
 
-	schema.define('name', 'Capitalize2(40)', true);
+    schema.define('name', 'Capitalize2(40)', true);
 
 });
 
 // GOOD:
 NEWSCHEMA('Users', function(schema) {
 
-	schema.define('name', 'Capitalize2(40)', true);
+    schema.define('name', 'Capitalize2(40)', true);
 
 });
 ```
@@ -155,15 +155,15 @@ NEWSCHEMA('Users', function(schema) {
 
 // BAD:
 PLUGIN('Name', function(plugin) {
-	plugin.doSomething = function() {
-	};
+    plugin.doSomething = function() {
+    };
 });
 
 // GOOD:
 PLUGIN('name', function(exports) {
-	// keep "exports." name and keep all names in lowercase
-	exports.dosomething = function() {
-	};
+    // keep "exports." name and keep all names in lowercase
+    exports.dosomething = function() {
+    };
 });
 
 // =======================================
@@ -176,8 +176,8 @@ COMPONENT('Name', function(com, settings) {
 });
 
 // GOOD:
-COMPONENT('name', function(self, config) {
-	// keep "self." and "config" name
+COMPONENT('name', function(self, config, cls) {
+    // keep names: "self.", "config" and "cls"
 });
 ````
 
@@ -209,56 +209,56 @@ __Fields creating__:
 ```sql
 -- BAD:
 CREATE TABLE "public"."tbl_channel_message" (
-	"channelid" varchar(25),
-	"body" text,
-	"id" varchar(25) NOT NULL,
-	"ispinned" bool DEFAULT FALSE,
-	"isrobot" bool DEFAULT FALSE,
-	"userid" varchar(25),
-	"countupdate" INT2 DEFAULT 0,
-	"dtupdated" timestamp,
-	"openplatformid" varchar(30),
-	"dtcreated" timestamp DEFAULT now(),
-	"ismobile" bool DEFAULT FALSE,
-	"isremoved" bool DEFAULT FALSE,
-	PRIMARY KEY ("id")
+    "channelid" varchar(25),
+    "body" text,
+    "id" varchar(25) NOT NULL,
+    "ispinned" bool DEFAULT FALSE,
+    "isrobot" bool DEFAULT FALSE,
+    "userid" varchar(25),
+    "countupdate" INT2 DEFAULT 0,
+    "dtupdated" timestamp,
+    "openplatformid" varchar(30),
+    "dtcreated" timestamp DEFAULT now(),
+    "ismobile" bool DEFAULT FALSE,
+    "isremoved" bool DEFAULT FALSE,
+    PRIMARY KEY ("id")
 );
 
 -- GOOD:
 CREATE TABLE "public"."tbl_channel_message" (
 
-	-- IDENTIFICATORS FIRST
-	"id" varchar(25) NOT NULL,
-	"userid" varchar(25),
-	"channelid" varchar(25),
-	"openplatformid" varchar(30),
+    -- IDENTIFICATORS FIRST
+    "id" varchar(25) NOT NULL,
+    "userid" varchar(25),
+    "channelid" varchar(25),
+    "openplatformid" varchar(30),
 
-	-- MAIN FIELDS
-	"body" text,
+    -- MAIN FIELDS
+    "body" text,
 
-	-- NUMBERS
-	"countupdate" INT2 DEFAULT 0,
+    -- NUMBERS
+    "countupdate" INT2 DEFAULT 0,
 
-	-- BOOLEANS
-	"ismobile" bool DEFAULT FALSE,
-	"ispinned" bool DEFAULT FALSE,
-	"isremoved" bool DEFAULT FALSE,
-	"isrobot" bool DEFAULT FALSE,
+    -- BOOLEANS
+    "ismobile" bool DEFAULT FALSE,
+    "ispinned" bool DEFAULT FALSE,
+    "isremoved" bool DEFAULT FALSE,
+    "isrobot" bool DEFAULT FALSE,
 
-	-- AND LAST DATES
-	"dtupdated" timestamp,
-	"dtcreated" timestamp DEFAULT NOW(),
+    -- AND LAST DATES
+    "dtupdated" timestamp,
+    "dtcreated" timestamp DEFAULT NOW(),
 
-	-- DO NOT FORGET FOR FOREIGN KEYS
-	CONSTRAINT ...
-	CONSTRAINT ...
+    -- DO NOT FORGET FOR FOREIGN KEYS
+    CONSTRAINT ...
+    CONSTRAINT ...
 
-	PRIMARY KEY ("id")
+    PRIMARY KEY ("id")
 );
 ```
 
 ## Contact
 
-- (c) 2012-2019 by Peter Širka - <petersirka@gmail.com>
-- contact form <https://www.totaljs.com/contact/>
+- (c) 2012-2020 by Peter Širka - <petersirka@gmail.com>
+- Contact us via <https://www.totaljs.com/contact/>
 - <info@totaljs.com>
