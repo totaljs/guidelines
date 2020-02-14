@@ -19,7 +19,7 @@ __Topics__:
 
 - use `tabs` (tab width `4`) instead of `spaces`
 - remove all unnecessary white-spaces
-- always use `;` semicolon at the end of a command
+- always use `;` semicolon at the end of the command
 - don't use `const` constant in the method scopes
 - short strings should be always wrapped in `'` apostrophes
 - avoid adding any dependencies as much as possible
